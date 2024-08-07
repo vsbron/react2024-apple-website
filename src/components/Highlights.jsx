@@ -3,6 +3,8 @@ import { useGSAP } from "@gsap/react";
 
 import { rightImg, watchImg } from "../utils";
 
+import VideoCarousel from "./VideoCarousel";
+
 function Highlights() {
   useGSAP(() => {
     gsap.to("#title", {
@@ -38,6 +40,7 @@ function Highlights() {
             </p>
           </div>
         </div>
+        <VideoCarousel />
       </div>
     </section>
   );
