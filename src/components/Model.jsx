@@ -1,6 +1,6 @@
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
 import { View } from "@react-three/drei";
@@ -8,6 +8,7 @@ import { View } from "@react-three/drei";
 import { yellowImg } from "../utils";
 import ModelView from "./ModelView";
 import { models, sizes } from "../constants";
+import { animateWithGsapTimeline } from "../utils/animations";
 
 function Model() {
   // Setting the state for the model & size
@@ -23,12 +24,39 @@ function Model() {
   const cameraControlLarge = useRef();
 
   // Three group for each size
-  const small = useRef(new THREE.Group());
-  const large = useRef(new THREE.Group());
+  const smallGroup = useRef(new THREE.Group());
+  const largeGroup = useRef(new THREE.Group());
 
   // Rotation of each size
   const [smallRotation, setSmallRotation] = useState(0);
   const [largeRotation, setLargeRotation] = useState(0);
+
+  // Creating the GSAP timeline
+  const tl = gsap.timeline();
+
+  // useEffect for switching iPhone sizes
+  useEffect(() => {
+    if (size === "large") {
+      animateWithGsapTimeline(
+        tl,
+        smallGroup,
+        smallRotation,
+        "#view1",
+        "#view2",
+        { transform: "translateX(-100%)", duration: 2 }
+      );
+    }
+    if (size === "small") {
+      animateWithGsapTimeline(
+        tl,
+        largeGroup,
+        largeRotation,
+        "#view2",
+        "#view1",
+        { transform: "translateX(0)", duration: 2 }
+      );
+    }
+  }, [size]);
 
   // Setting animations
   useGSAP(() => {
@@ -50,7 +78,7 @@ function Model() {
           <div className="w-full h-[75vh] md:h-[90vh] overflow-hidden relative">
             <ModelView
               index={1}
-              groupRef={small}
+              groupRef={smallGroup}
               gsapType="view1"
               controlRef={cameraControlSmall}
               setRotationState={setSmallRotation}
@@ -59,7 +87,7 @@ function Model() {
             />
             <ModelView
               index={2}
-              groupRef={large}
+              groupRef={largeGroup}
               gsapType="view2"
               controlRef={cameraControlLarge}
               setRotationState={setLargeRotation}

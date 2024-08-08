@@ -4,6 +4,7 @@ import * as THREE from "three";
 
 import IPhone from "./IPhone";
 import Lights from "./Lights";
+import Loader from "./Loader";
 
 function ModelView({
   index,
@@ -19,7 +20,7 @@ function ModelView({
     <View
       index={index}
       id={gsapType}
-      className={`w-full h-full ${index === 2 && "right-[-100%]"}`}
+      className={`w-full h-full absolute ${index === 2 && "right-[-100%]"}`}
     >
       {/* Ambient lighting */}
       <ambientLight intensity={0.3} />
@@ -46,7 +47,7 @@ function ModelView({
         name={`${index === 1 ? "small" : "large"}`}
         position={[0, 0, 0]}
       >
-        <Suspense fallback={"Loading"}>
+        <Suspense fallback={<Loader />}>
           <IPhone
             scale={index === 1 ? [15, 15, 15] : [17, 17, 17]}
             item={item}
