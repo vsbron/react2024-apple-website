@@ -30,14 +30,14 @@ function VideoCarousel() {
 
   // Setting the animation for the videos
   useGSAP(() => {
-    // Animation for slider
+    // Animation for slider to change the video when current one ends and ID changes
     gsap.to("#slider", {
       transform: `translateX(${-100 * videoId}%)`,
       duration: 2,
       ease: "power2.inOut",
     });
 
-    // Animation for video
+    // Animation for video to start playing when scrolling to it
     gsap.to("#video", {
       scrollTrigger: {
         trigger: "#video",
@@ -49,9 +49,9 @@ function VideoCarousel() {
     });
   }, [isEnd, videoId]);
 
-  // useEffect
+  // useEffect to ensure all videos are loaded, then starts to play them
   useEffect(() => {
-    if (loadedData.length > 3) {
+    if (loadedData.length >= hightlightsSlides.length) {
       if (!isPlaying) {
         videoRef.current[videoId].pause();
       } else {
@@ -106,11 +106,12 @@ function VideoCarousel() {
         },
       });
 
-      if (videoId == 0) {
+      // Restart the animation when video ID is 0 (onload or restart button)
+      if (videoId === 0) {
         anim.restart();
       }
 
-      // update the progress bar
+      // Update the progress bar
       const animUpdate = () => {
         anim.progress(
           videoRef.current[videoId].currentTime /
@@ -118,11 +119,12 @@ function VideoCarousel() {
         );
       };
 
+      // Tickers to add the value of anim.progress if video is playing
       if (isPlaying) {
-        // ticker to update the progress bar
+        // Ticker to update the progress bar
         gsap.ticker.add(animUpdate);
       } else {
-        // remove the ticker when the video is paused (progress bar is stopped)
+        // Remove the ticker when the video is paused (progress bar is stopped)
         gsap.ticker.remove(animUpdate);
       }
     }
@@ -178,7 +180,7 @@ function VideoCarousel() {
                   muted
                   ref={(el) => (videoRef.current[i] = el)}
                   onEnded={() =>
-                    i !== 3
+                    i !== hightlightsSlides.length - 1
                       ? handleProcess("video-end", i)
                       : handleProcess("video-last")
                   }
