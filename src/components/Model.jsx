@@ -23,8 +23,8 @@ function Model() {
   const cameraControlLarge = useRef();
 
   // Three group for each size
-  const smallGroup = useRef(new THREE.Group());
-  const largeGroup = useRef(new THREE.Group());
+  const small = useRef(new THREE.Group());
+  const large = useRef(new THREE.Group());
 
   // Rotation of each size
   const [smallRotation, setSmallRotation] = useState(0);
@@ -50,7 +50,7 @@ function Model() {
           <div className="w-full h-[75vh] md:h-[90vh] overflow-hidden relative">
             <ModelView
               index={1}
-              groupRef={smallGroup}
+              groupRef={small}
               gsapType="view1"
               controlRef={cameraControlSmall}
               setRotationState={setSmallRotation}
@@ -59,7 +59,7 @@ function Model() {
             />
             <ModelView
               index={2}
-              groupRef={largeGroup}
+              groupRef={large}
               gsapType="view2"
               controlRef={cameraControlLarge}
               setRotationState={setLargeRotation}
