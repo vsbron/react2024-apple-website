@@ -6,8 +6,9 @@ Clone of the modern Apple website with iPhone 15 presentation written as a React
 
 - Header with the simple navigation;
 - Hero section with product presentation;
-- Features section with the video slider;
+- Highlights section with the video slider;
 - Interactive model view with iPhones can be viewed in different models and colors;
+- Features section with the videos and animated images showing off the titanium material;
 
 ## Details
 
