@@ -1,4 +1,4 @@
-import { footerLinks } from "../constants";
+import FooterNav from "../ui/FooterNav";
 
 function Footer() {
   // Returned JSX
@@ -14,25 +14,20 @@ function Footer() {
           </p>
 
           <p className="font-semibold text-gray text-xs">
-            Or call 000800-040-1966
+            Or call (800) MY-APPLE (
+            <a href="tel:8006927753" className="underline text-blue">
+              800-692-7753
+            </a>
+            )
           </p>
         </div>
         <div className="bg-neutral-700 my-5 h-[1px] w-full" />
 
         <div className="flex md:flex-row flex-col md:items-center justify-between">
           <p className="font-semibold text-gray text-xs">
-            Copyright 2024 Apple Inc. All rights reserved
+            Copyright &copy; 2024 Apple Inc. All rights reserved
           </p>
-          <div className="flex">
-            {footerLinks.map((link, i) => (
-              <p key={link} className="font-semibold text-gray text-xs">
-                {link}{" "}
-                {i !== footerLinks.length - 1 && (
-                  <span className="mx-2">| </span>
-                )}
-              </p>
-            ))}
-          </div>
+          <FooterNav />
         </div>
       </div>
     </footer>
