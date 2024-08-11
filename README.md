@@ -16,7 +16,8 @@ Clone of the modern Apple website with iPhone 15 presentation written as a React
 
 - Styles are handled via Tailwind CSS;
 - Animations are handled via GSAP;
-- 3D animations are handled by Three.js
+- 3D animations are handled by Three.js;
+- A big number of improvements were added to the layout and animation to the original project;
 - Responsive design supporting mobile devices with a width of at least 360px;
 
 ## Live version
