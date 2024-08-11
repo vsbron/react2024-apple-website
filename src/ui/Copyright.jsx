@@ -1,6 +1,6 @@
 function Copyright() {
   return (
-    <div className="text-right">
+    <div className="text-left mt-2 md:text-right md:mt-0">
       Built by VSBroN as a portfolio project
       <br />
       This project is available on{" "}

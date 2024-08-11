@@ -41,7 +41,7 @@ function HowItWorks() {
     <section className="common-padding">
       <div className="screen-max-width">
         {/* Top image */}
-        <div id="chip" className="flex-center w-full my-20">
+        <div id="chip" className="flex-center w-full my-12 lg:my-20">
           <img src={chipImg} alt="Chip" width={180} height={180} />
         </div>
         <div className="flex flex-col items-center">
@@ -83,6 +83,11 @@ function HowItWorks() {
           </p>
         </div>
         <div className="hiw-text-container">
+          <div className="flex-1 flex justify-center flex-col order-none md:order-1 g_fadeIn">
+            <p className="hiw-text">New</p>
+            <p className="hiw-bigtext">Pro-class GPU</p>
+            <p className="hiw-text">with 6 cores</p>
+          </div>
           <div className="flex flex-1 justify-center flex-col">
             <p className="hiw-text g_fadeIn">
               A17 Pro is an entirely new class of iPhone chip that delivers our{" "}
@@ -101,11 +106,6 @@ function HowItWorks() {
               characters. And with industry-leading speed and efficiency, A17
               Pro takes fast and runs with it.
             </p>
-          </div>
-          <div className="flex-1 flex justify-center flex-col g_fadeIn">
-            <p className="hiw-text">New</p>
-            <p className="hiw-bigtext">Pro-class GPU</p>
-            <p className="hiw-text">with 6 cores</p>
           </div>
         </div>
       </div>
