@@ -72,7 +72,7 @@ function Model() {
           Take a closer look
         </h1>
         <div className="flex flex-col items-center">
-          <div className="w-full h-[65vh] md:h-[80vh] overflow-hidden relative -mt-12 -mb-8 sm:-mt-8 sm:-mb-4">
+          <div className="w-screen h-[65vh] md:h-[80vh] overflow-hidden relative -mt-12 -mb-8 sm:-mt-8 sm:-mb-4">
             <ModelView
               index={1}
               groupRef={smallGroup}

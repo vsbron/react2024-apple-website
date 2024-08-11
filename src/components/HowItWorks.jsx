@@ -20,8 +20,7 @@ function HowItWorks() {
     gsap.from("#chip", {
       scrollTrigger: {
         trigger: "#chip",
-
-        start: () => (window.innerWidth < 768 ? "top 110%" : "top 85%"), // Adjust for mobile
+        start: () => (window.innerWidth < 640 ? "top 95%" : "top 85%"), // Adjust for mobile
       },
       opacity: 0,
       scale: 2,

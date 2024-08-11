@@ -9,7 +9,7 @@ export const animateWithGsap = (target, animationProps, scrollProps) => {
     scrollTrigger: {
       trigger: target,
       toggleActions: "restart reverse restart reverse",
-      start: () => (window.innerWidth < 768 ? "top 110%" : "top 85%"), // Adjust for mobile
+      start: () => (window.innerWidth < 640 ? "top 95%" : "top 85%"), // Adjust for mobile
       ...scrollProps,
     },
   });
