@@ -8,7 +8,7 @@ import { View } from "@react-three/drei";
 import { yellowImg } from "../utils";
 import ModelView from "./ModelView";
 import { models, sizes } from "../constants";
-import { animateWithGsapTimeline } from "../utils/animations";
+import { animateWithGsap, animateWithGsapTimeline } from "../utils/animations";
 
 function Model() {
   // Setting the state for the model & size
@@ -61,10 +61,7 @@ function Model() {
   // Setting animations
   useGSAP(() => {
     // Animation for heading
-    gsap.to("#heading", {
-      opacity: 1,
-      y: 0,
-    });
+    animateWithGsap("#heading", { opacity: 1, y: 0 });
   }, []);
 
   // Returned JSX
@@ -74,8 +71,8 @@ function Model() {
         <h1 id="heading" className="section-heading">
           Take a closer look
         </h1>
-        <div className="flex flex-col items-center mt-5">
-          <div className="w-full h-[75vh] md:h-[90vh] overflow-hidden relative">
+        <div className="flex flex-col items-center">
+          <div className="w-full h-[65vh] md:h-[80vh] overflow-hidden relative -mt-12 -mb-8 sm:-mt-8 sm:-mb-4">
             <ModelView
               index={1}
               groupRef={smallGroup}

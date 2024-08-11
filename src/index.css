@@ -8,6 +8,11 @@
   box-sizing: border-box;
 }
 
+html {
+  --scroll-behavior: smooth !important;
+  scroll-behavior: smooth !important;
+}
+
 body {
   color: white;
   width: 100dvw;
@@ -62,6 +67,10 @@ canvas {
     @apply text-gray lg:text-6xl md:text-5xl text-3xl lg:mb-0 mb-5 font-medium opacity-0 translate-y-20;
   }
 
+  .feature-subheading {
+    @apply opacity-0 translate-y-20;
+  }
+
   .feature-text {
     @apply text-gray max-w-md text-lg md:text-xl font-semibold opacity-0 translate-y-[100px];
   }
@@ -99,7 +108,7 @@ canvas {
   }
 
   .hiw-video {
-    @apply absolute w-[95%] h-[90%] rounded-[56px] overflow-hidden;
+    @apply absolute w-[96%] h-[92%] rounded-[20px] sm:rounded-[30px] overflow-hidden;
   }
 
   .hiw-text-container {

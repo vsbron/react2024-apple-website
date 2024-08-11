@@ -6,7 +6,7 @@ function Header() {
   // Returned JSX
   return (
     <header className="w-full py-5 sm:px-10 px-5 flex justify-between items-center">
-      <nav className="flex w-full screen-max-width">
+      <nav className="grid grid-cols-2 sm:grid-cols-[64px_1fr_64px] w-full screen-max-width">
         <img src={appleImg} alt="Apple" width={14} height={18} />
         <HeaderNav />
         <div className="flex items-baseline gap-7 max-sm:justify-end max-sm:flex-1">

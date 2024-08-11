@@ -15,6 +15,7 @@ export const animateWithGsap = (target, animationProps, scrollProps) => {
   });
 };
 
+// Helper function to short the gsap function call and add timeline animation
 export const animateWithGsapTimeline = (
   timeline,
   rotationRef,
@@ -46,4 +47,19 @@ export const animateWithGsapTimeline = (
     },
     "<"
   );
+};
+
+// Helper function for video animation to play each time you scroll to it
+export const animateWithGsapVideo = (target, ref) => {
+  gsap.to(target, {
+    scrollTrigger: {
+      trigger: target,
+      start: "top center",
+      end: "bottom top",
+      onEnter: () => ref.current.play(), // Play when the video enters the viewport
+      onLeave: () => ref.current.pause(), // Pause when the video leaves the viewport
+      onEnterBack: () => ref.current.play(), // Resume playing when scrolling back up
+      onLeaveBack: () => ref.current.pause(), // Pause when scrolling back out
+    },
+  });
 };

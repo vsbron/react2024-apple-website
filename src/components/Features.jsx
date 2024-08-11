@@ -1,11 +1,8 @@
 import { useRef } from "react";
-import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/all";
-gsap.registerPlugin(ScrollTrigger);
 
 import { explore1Img, explore2Img, exploreVideo } from "../utils";
-import { animateWithGsap } from "../utils/animations";
+import { animateWithGsap, animateWithGsapVideo } from "../utils/animations";
 
 function Features() {
   //ference for video element
@@ -13,20 +10,11 @@ function Features() {
 
   // Hook for animations
   useGSAP(() => {
-    // Tooking over the video controls
-    gsap.to("#exploreVideo", {
-      scrollTrigger: {
-        trigger: "#exploreVideo",
-        toggleActions: "play pause reverse restart",
-        start: "-10% bottom",
-      },
-      onComplete: () => {
-        videoRef.current.play();
-      },
-    });
+    // Taking over the video controls
+    animateWithGsapVideo("#exploreVideo", videoRef);
 
-    // Animation for video
-    animateWithGsap("#features_title", { opacity: 1, y: 0 });
+    // Animation for title text
+    animateWithGsap(".features_title", { opacity: 1, y: 0, stagger: 0.2 });
 
     // Animation for images
     animateWithGsap(
@@ -48,13 +36,13 @@ function Features() {
   return (
     <section className="h-full common-padding bg-zinc relative overflow-hidden">
       <div className="screen-max-width">
-        <div className="mb-12 w-full">
-          <h1 id="features_title" className="section-heading">
+        <div className="mb-2 w-full">
+          <h1 className="section-heading features_title">
             Explore the full story
           </h1>
         </div>
-        <div className="flex flex-col justify-center items-center overflow-hidden">
-          <div className="mt-32 mb-24 ml-24">
+        <div className="flex flex-col justify-center items-start overflow-hidden">
+          <div className="mt-20 mb-24 features_title feature-subheading">
             <h2 className="text-5xl lg:text-7xl font-semibold">iPhone.</h2>
             <h2 className="text-5xl lg:text-7xl font-semibold">
               Forged in titanium.

@@ -4,18 +4,19 @@ import { useGSAP } from "@gsap/react";
 import { rightImg, watchImg } from "../utils";
 
 import VideoCarousel from "./VideoCarousel";
+import { animateWithGsap } from "../utils/animations";
 
 function Highlights() {
   useGSAP(() => {
-    gsap.to("#title", {
-      opacity: 1,
-      y: 0,
-    });
-    gsap.to(".link", {
+    // Animation for title text
+    animateWithGsap("#title", { opacity: 1, y: 0 });
+
+    // Animation for links text
+    animateWithGsap(".link", {
       opacity: 1,
       y: 0,
       duration: 1,
-      stagger: 0.25,
+      stagger: 0.1,
     });
   }, []);
 

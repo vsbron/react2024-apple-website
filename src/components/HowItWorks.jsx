@@ -1,9 +1,11 @@
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/all";
+gsap.registerPlugin(ScrollTrigger);
 
 import { chipImg, frameImg, frameVideo } from "../utils";
-import { animateWithGsap } from "../utils/animations";
+import { animateWithGsap, animateWithGsapVideo } from "../utils/animations";
 
 function HowItWorks() {
   // Creating the reference for the video element
@@ -11,6 +13,9 @@ function HowItWorks() {
 
   // Setting animations
   useGSAP(() => {
+    // Taking over the video controls
+    animateWithGsapVideo("#frameVideo", videoRef);
+
     // Animating the chip image
     gsap.from("#chip", {
       scrollTrigger: {
@@ -20,7 +25,7 @@ function HowItWorks() {
       opacity: 0,
       scale: 2,
       duration: 2,
-      ease: "powe2.inOut",
+      ease: "power2.inOut",
     });
 
     animateWithGsap(".g_fadeIn", {
@@ -66,6 +71,7 @@ function HowItWorks() {
                 preload="none"
                 muted
                 autoPlay
+                id="frameVideo"
                 ref={videoRef}
               >
                 <source src={frameVideo} type="video/mp4" />
@@ -79,9 +85,9 @@ function HowItWorks() {
         <div className="hiw-text-container">
           <div className="flex flex-1 justify-center flex-col">
             <p className="hiw-text g_fadeIn">
-              A17 Pro is an entirely new class of iPhone chip that delivers ours{" "}
+              A17 Pro is an entirely new class of iPhone chip that delivers our{" "}
               <span className="text-white">
-                best graphic performance by far
+                best graphics performance by far
               </span>
               .
             </p>
@@ -91,7 +97,9 @@ function HowItWorks() {
               <span className="text-white">
                 games will look and feel so immersive
               </span>
-              , with incredibly detailed environments and characters.
+              , with incredibly detailed environments and more realistic
+              characters. And with industry-leading speed and efficiency, A17
+              Pro takes fast and runs with it.
             </p>
           </div>
           <div className="flex-1 flex justify-center flex-col g_fadeIn">

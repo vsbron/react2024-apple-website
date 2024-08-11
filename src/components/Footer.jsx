@@ -1,3 +1,4 @@
+import Copyright from "../ui/Copyright";
 import FooterNav from "../ui/FooterNav";
 
 function Footer() {
@@ -7,8 +8,10 @@ function Footer() {
       <div className="screen-max-width">
         <div>
           <p className="font-semibold text-gray text-xs">
-            More ways to shop:{" "}
-            <span className="underline text-blue">Find an Apple Store</span> or{" "}
+            More ways to shop: <br className="hidden max-[400px]:inline" />
+            <span className="underline text-blue">
+              Find an Apple Store
+            </span> or{" "}
             <span className="underline text-blue">other retailer</span> near
             you.
           </p>
@@ -23,11 +26,12 @@ function Footer() {
         </div>
         <div className="bg-neutral-700 my-5 h-[1px] w-full" />
 
-        <div className="flex md:flex-row flex-col md:items-center justify-between">
-          <p className="font-semibold text-gray text-xs">
-            Copyright &copy; 2024 Apple Inc. All rights reserved
-          </p>
-          <FooterNav />
+        <div className="flex md:flex-row flex-col md:items-center justify-between font-semibold text-gray text-xs">
+          <div>
+            <FooterNav />
+            <p>Copyright &copy; 2024 Apple Inc. All rights reserved</p>
+          </div>
+          <Copyright />
         </div>
       </div>
     </footer>
