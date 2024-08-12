@@ -54,8 +54,8 @@ export const animateWithGsapVideo = (target, ref) => {
   gsap.to(target, {
     scrollTrigger: {
       trigger: target,
-      start: "top center",
-      end: "bottom top",
+      start: "top 85%",
+      end: "bottom 0",
       onEnter: () => ref.current.play(), // Play when the video enters the viewport
       onLeave: () => ref.current.pause(), // Pause when the video leaves the viewport
       onEnterBack: () => ref.current.play(), // Resume playing when scrolling back up

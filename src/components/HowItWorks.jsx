@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/all";
 gsap.registerPlugin(ScrollTrigger);
 
 import { chipImg, frameImg, frameVideo } from "../utils";
-import { animateWithGsap, animateWithGsapVideo } from "../utils/animations";
+import { animateWithGsapVideo } from "../utils/animations";
 
 function HowItWorks() {
   // Creating the reference for the video element
@@ -20,7 +20,7 @@ function HowItWorks() {
     gsap.from("#chip", {
       scrollTrigger: {
         trigger: "#chip",
-        start: () => (window.innerWidth < 640 ? "top 95%" : "top 85%"), // Adjust for mobile
+        start: "top 85%",
       },
       opacity: 0,
       scale: 2,
@@ -28,7 +28,11 @@ function HowItWorks() {
       ease: "power2.inOut",
     });
 
-    animateWithGsap(".g_fadeIn", {
+    gsap.to(".g_fadeIn", {
+      scrollTrigger: {
+        trigger: ".g_fadeIn",
+        start: "top 85%",
+      },
       opacity: 1,
       y: 0,
       duration: 1,
