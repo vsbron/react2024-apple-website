@@ -14,6 +14,7 @@ Clone of the modern Apple website with iPhone 15 presentation written as a React
 
 ## Details
 
+- App is written as React ASP with TypeScript;
 - Styles are handled via Tailwind CSS;
 - Animations are handled via GSAP;
 - 3D animations are handled by Three.js;
