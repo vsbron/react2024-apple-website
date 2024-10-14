@@ -95,7 +95,7 @@ function Model() {
             <Canvas
               className="w-full h-full"
               style={{ position: "fixed", inset: "0", overflow: "hidden" }}
-              eventSource={document.getElementById("root")}
+              eventSource={document.getElementById("root")!}
             >
               <View.Port />
             </Canvas>

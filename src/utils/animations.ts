@@ -3,7 +3,11 @@ import { ScrollTrigger } from "gsap/all";
 gsap.registerPlugin(ScrollTrigger);
 
 // Helper function to short the gsap function call
-export const animateWithGsap = (target, animationProps, scrollProps) => {
+export const animateWithGsap = (
+  target: any,
+  animationProps: any,
+  scrollProps?: any
+) => {
   gsap.to(target, {
     ...animationProps,
     scrollTrigger: {
@@ -17,12 +21,12 @@ export const animateWithGsap = (target, animationProps, scrollProps) => {
 
 // Helper function to short the gsap function call and add timeline animation
 export const animateWithGsapTimeline = (
-  timeline,
-  rotationRef,
-  rotationState,
-  firstTarget,
-  secondTarget,
-  animationProps
+  timeline: any,
+  rotationRef: any,
+  rotationState: any,
+  firstTarget: any,
+  secondTarget: any,
+  animationProps: any
 ) => {
   timeline.to(rotationRef.current.rotation, {
     y: rotationState,
@@ -50,7 +54,7 @@ export const animateWithGsapTimeline = (
 };
 
 // Helper function for video animation to play each time you scroll to it
-export const animateWithGsapVideo = (target, ref) => {
+export const animateWithGsapVideo = (target: any, ref: any) => {
   gsap.to(target, {
     scrollTrigger: {
       trigger: target,

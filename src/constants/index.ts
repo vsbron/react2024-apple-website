@@ -11,12 +11,12 @@ import {
 
 export const navLists = ["Store", "Mac", "iPhone", "Support"];
 
-export const hightlightsSlides = [
+export const highlightsSlides = [
   {
     id: 1,
     textLists: [
       "Enter A17 Pro.",
-      "Game‑changing chip.",
+      "Game-changing chip.",
       "Groundbreaking performance.",
     ],
     video: highlightFirstVideo,

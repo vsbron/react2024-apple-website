@@ -2,6 +2,8 @@ import { Suspense } from "react";
 import { OrbitControls, PerspectiveCamera, View } from "@react-three/drei";
 import * as THREE from "three";
 
+import { ModelViewProps } from "../lib/types";
+
 import IPhone from "./IPhone";
 import Lights from "./Lights";
 import Loader from "./Loader";
@@ -14,7 +16,7 @@ function ModelView({
   setRotationState,
   item,
   size,
-}) {
+}: ModelViewProps) {
   // Returned JSX
   return (
     <View

@@ -5,7 +5,7 @@ import { explore1Img, explore2Img, exploreVideo } from "../utils";
 import { animateWithGsap, animateWithGsapVideo } from "../utils/animations";
 
 function Features() {
-  //ference for video element
+  // Reference for video element
   const videoRef = useRef();
 
   // Hook for animations

@@ -9,7 +9,7 @@ import { animateWithGsapVideo } from "../utils/animations";
 
 function HowItWorks() {
   // Creating the reference for the video element
-  const videoRef = useRef();
+  const videoRef = useRef<HTMLVideoElement | null>(null);
 
   // Setting animations
   useGSAP(() => {
