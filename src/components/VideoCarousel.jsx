@@ -3,7 +3,7 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
 import { useEffect, useRef, useState } from "react";
 
-import { hightlightsSlides } from "../constants";
+import { highlightsSlides } from "../constants";
 import { pauseImg, playImg, replayImg } from "../utils";
 gsap.registerPlugin(ScrollTrigger);
 
@@ -51,7 +51,7 @@ function VideoCarousel() {
 
   // useEffect to ensure all videos are loaded, then starts to play them
   useEffect(() => {
-    if (loadedData.length >= hightlightsSlides.length) {
+    if (loadedData.length >= highlightsSlides.length) {
       if (!isPlaying) {
         videoRef.current[videoId].pause();
       } else {
@@ -115,7 +115,7 @@ function VideoCarousel() {
       const animUpdate = () => {
         anim.progress(
           videoRef.current[videoId].currentTime /
-            hightlightsSlides[videoId].videoDuration
+            highlightsSlides[videoId].videoDuration
         );
       };
 
@@ -166,7 +166,7 @@ function VideoCarousel() {
   return (
     <>
       <div className="flex items-center">
-        {hightlightsSlides.map((list, i) => (
+        {highlightsSlides.map((list, i) => (
           <div key={list.id} id="slider" className="sm:pr-20 pr-10">
             <div className="video-carousel_container">
               <div className="w-full h-full flex-center rounded-3xl overflow-hidden bg-black">
@@ -180,7 +180,7 @@ function VideoCarousel() {
                   muted
                   ref={(el) => (videoRef.current[i] = el)}
                   onEnded={() =>
-                    i !== hightlightsSlides.length - 1
+                    i !== highlightsSlides.length - 1
                       ? handleProcess("video-end", i)
                       : handleProcess("video-last")
                   }

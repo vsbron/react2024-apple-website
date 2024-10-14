@@ -6,7 +6,7 @@ import { animateWithGsap, animateWithGsapVideo } from "../utils/animations";
 
 function Features() {
   // Reference for video element
-  const videoRef = useRef();
+  const videoRef = useRef<HTMLVideoElement | null>(null);
 
   // Hook for animations
   useGSAP(() => {
