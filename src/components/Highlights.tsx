@@ -1,9 +1,9 @@
 import { useGSAP } from "@gsap/react";
 
 import { rightImg, watchImg } from "../utils";
+import { animateWithGsap } from "../utils/animations";
 
 import VideoCarousel from "./VideoCarousel";
-import { animateWithGsap } from "../utils/animations";
 
 function Highlights() {
   useGSAP(() => {

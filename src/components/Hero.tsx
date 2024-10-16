@@ -1,12 +1,12 @@
+import { useState, useEffect } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-import { useState, useEffect } from "react";
 
 import { heroVideo, smallHeroVideo } from "../utils";
 
 function Hero() {
   // Setting the state for the video source
-  const [videoSrc, setVideoSrc] = useState(
+  const [videoSrc, setVideoSrc] = useState<string>(
     window.innerWidth < 760 ? smallHeroVideo : heroVideo
   );
 

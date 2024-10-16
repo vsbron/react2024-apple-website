@@ -1,4 +1,8 @@
-export type IPhoneProps = { scale: any; item: any; size: any };
+export type ModelState = {
+  title: string;
+  color: string[];
+  img: string;
+};
 
 export type ModelViewProps = {
   index: any;

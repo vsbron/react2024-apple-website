@@ -5,31 +5,33 @@ import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
 import { View } from "@react-three/drei";
 
-import { yellowImg } from "../utils";
-import ModelView from "./ModelView";
 import { models, sizes } from "../constants";
+import { ModelState } from "../lib/types";
+import { yellowImg } from "../utils";
 import { animateWithGsap, animateWithGsapTimeline } from "../utils/animations";
+
+import ModelView from "./ModelView";
 
 function Model() {
   // Setting the state for the model & size
-  const [size, setSize] = useState("small");
-  const [model, setModel] = useState({
+  const [size, setSize] = useState<string>("small");
+  const [model, setModel] = useState<ModelState>({
     title: "iPhone 15 Pro in Natural Titanium",
     color: ["#8f8a81", "#ffe7b9", "#6f6c64"],
     img: yellowImg,
   });
 
   // Refs for cameras of various sizes
-  const cameraControlSmall = useRef();
-  const cameraControlLarge = useRef();
+  const cameraControlSmall = useRef<THREE.PerspectiveCamera | null>();
+  const cameraControlLarge = useRef<THREE.PerspectiveCamera | null>();
 
   // Three group for each size
-  const smallGroup = useRef(new THREE.Group());
-  const largeGroup = useRef(new THREE.Group());
+  const smallGroup = useRef<THREE.Group>(new THREE.Group());
+  const largeGroup = useRef<THREE.Group>(new THREE.Group());
 
   // Rotation of each size
-  const [smallRotation, setSmallRotation] = useState(0);
-  const [largeRotation, setLargeRotation] = useState(0);
+  const [smallRotation, setSmallRotation] = useState<number>(0);
+  const [largeRotation, setLargeRotation] = useState<number>(0);
 
   // Creating the GSAP timeline
   const tl = gsap.timeline();
