@@ -13,3 +13,9 @@ export type ModelViewProps = {
   item: any;
   size: any;
 };
+
+export type IPhoneProps = {
+  item: any;
+  size: any;
+  scale: any;
+};

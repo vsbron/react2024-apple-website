@@ -4,7 +4,7 @@ import * as THREE from "three";
 
 import { ModelViewProps } from "../lib/types";
 
-import IPhone from "./IPhone.jsx";
+import IPhone from "./IPhone";
 import Lights from "./Lights";
 import Loader from "./Loader";
 
